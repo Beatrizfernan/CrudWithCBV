@@ -8,9 +8,12 @@ class ProductListView(ListView):
     template_name = 'trolley/product_list.html'
     context_object_name = 'products'
 
-class ProductDetailView(DetailView):
-    model = Product
-    template_name = 'trolley/product_detail.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['total_products'] = Product.objects.count()
+        return context
+    
+
 
 class ProductCreateView(CreateView):
     model = Product

@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Meu Projeto{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- Inclua outros arquivos de estilo aqui -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'product-list' %}">Produtos</a></li>
+                <li><a href="{% url 'product-create' %}">Criar Produto</a></li>
+                <!-- Adicione outros links de navegação aqui -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- O conteúdo dos templates filhos será inserido aqui -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Meu Projeto. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
+

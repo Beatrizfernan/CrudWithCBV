@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{% if form.instance.pk %}Atualizar{% else %}Criar{% endif %} Produto</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">
+      {% if form.instance.pk %}Atualizar{% else %}Criar{% endif %}
+    </button>
+  </form>
+  <a href="{% url 'product-list' %}" class="btn btn-secondary">Voltar à lista</a>
+{% endblock %}
